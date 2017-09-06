@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PTS | Think and Action</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="PTS，即渗透测试，是安全测试人员模拟黑客攻击对目标进行安全检测的一种方式，渗透测试人员有红队，蓝队，紫队之称，各自代表了一种角色，构成了PTS的角色系统，PTS有着完整的系统环节来进行一次入侵测试，主要包括信息收集，渗透测试阶段，后渗透测试阶段，渗透测试报告等阶段。其实真实入侵的环节有些不同，主要包括信息收集与侦察，漏洞利用，权限提升，维持权限，痕迹消除等阶段。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PTS">
+<meta property="og:url" content="http://wuyeren.github.io/2017/09/06/PTS/index.html">
+<meta property="og:site_name" content="Think and Action">
+<meta property="og:description" content="PTS，即渗透测试，是安全测试人员模拟黑客攻击对目标进行安全检测的一种方式，渗透测试人员有红队，蓝队，紫队之称，各自代表了一种角色，构成了PTS的角色系统，PTS有着完整的系统环节来进行一次入侵测试，主要包括信息收集，渗透测试阶段，后渗透测试阶段，渗透测试报告等阶段。其实真实入侵的环节有些不同，主要包括信息收集与侦察，漏洞利用，权限提升，维持权限，痕迹消除等阶段。">
+<meta property="og:locale" content="chinese">
+<meta property="og:updated_time" content="2017-09-06T07:52:05.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PTS">
+<meta name="twitter:description" content="PTS，即渗透测试，是安全测试人员模拟黑客攻击对目标进行安全检测的一种方式，渗透测试人员有红队，蓝队，紫队之称，各自代表了一种角色，构成了PTS的角色系统，PTS有着完整的系统环节来进行一次入侵测试，主要包括信息收集，渗透测试阶段，后渗透测试阶段，渗透测试报告等阶段。其实真实入侵的环节有些不同，主要包括信息收集与侦察，漏洞利用，权限提升，维持权限，痕迹消除等阶段。">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Think and Action</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wuyeren.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PTS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/06/PTS/" class="article-date">
+  <time datetime="2017-09-06T07:49:42.000Z" itemprop="datePublished">2017-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PTS
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PTS，即渗透测试，是安全测试人员模拟黑客攻击对目标进行安全检测的一种方式，渗透测试人员有红队，蓝队，紫队之称，各自代表了一种角色，构成了PTS的角色系统，PTS有着完整的系统环节来进行一次入侵测试，主要包括信息收集，渗透测试阶段，后渗透测试阶段，渗透测试报告等阶段。其实真实入侵的环节有些不同，主要包括信息收集与侦察，漏洞利用，权限提升，维持权限，痕迹消除等阶段。</p>
+<a id="more"></a>
+<p>环节之间是可以并行且迭代的，但从微观角度来讲，各个环节之间是线性进行的，理论方面来说有点像单CPU多线程的并发操作，PTS可以是一次简单的恶搞，也可以是复杂且破坏力度强大的APT攻击，并且PTS本身就包含了许多领域知识，不但是技术，也包括人类心理方面的应用，毕竟当系统某种程度来说牢不可破时，人自身也便成为最大的安全漏洞，社会工程学便是针对人性进行入侵的一门学科，也是渗透测试人员需要掌握的基本技能之一，这个社会可怕之处就在于杀人也会被当作一门艺术来研究，而社工也有着成熟的架构体系来供我们学习，个人理解而言，我认为的社工便是通过某种方式让目标完成你所期望的行为，某种方式可以理解为你如何引导目标达到你的目的，如果把人比作一台机器，那么你所做的便是嵌入你的指令，并指定合适的优先级。</p>
+<pre><code>DEFCON的一次演讲视频中提出了关于渗透测试的一种想法，并依此设计了一套卡牌桌游，其基本思想便是将攻防置于公平竞争平台，双方在交互中进行竞争，其中有一个很有意义的地方就是这种方案将实际技术与模式进行映射，前面我们提到渗透测试是由不同的阶段所构成，这里的阶段可以理解为模式，不同的模式由不同的技术具体实行，将技术映射到模式之后，我们可以通过检测相关技术的签名，即指纹特征来间接的了解到对方的现阶段所在模式，并依此建立应对策略。由此，我们可以在忽略具体底层实现技术的前提下进行渗透测试的知识科普和理论学习，以及很重要的HACK思维培养和拓展，我一直认为思维优于方法，方法优于知识，知识与实践即具体技术相结合，在这里的思维便是HACKER的创新性和发散性思维，思维决定使用的方法，只是在这之前我们要明确我们的目的是什么，所有的一切都是服务于我们的目的，我们不必经过所有的阶段，因为这不是重点，重点是模式的不同组合达到实现目的方案的最优化，方法和技术是多种多样且持续更新的，我们不应该墨守陈规，应该保持一种学习的态度，保证自己时刻处在技术的同步更新中，我们不想在学习某种具体技术之后却发现技术本身已经过时，另一方面来说，我们不想当技工，甚至说高级技工，这是一件很无聊的事情不是吗，就像你整天所敲出的那些业务代码一样，束缚于规则，缺乏于创新，很是枯燥与烦闷。
+
+渗透测试是一种团队合作，之所以是一种团队合作，是因为个人很难掌握全面的知识，当然渗透测试本身你可以独立一人去完成，但是这纯粹是一次单独的入侵不是吗？或者你无法给出全面有效的测试报告。举例来说，你或许擅长web安全，但是你不熟悉系统安全，你或许了解密码破解，但是你不熟悉逆向破解，所以很多时候我们需要团队之间的彼此合作，有人负责社工行动，有人负责测试报告，有人负责入侵活动等等。在渗透测试中默契的合作能带来很高的效率，就像各个环节的无缝链接，另一方面我们应提前准备好我们的渗透环境，准备好的程序绝大多数时候要比现写程序的效率高，良好的渗透环境便是成功的一半，也是效率的有效保证，脚本和工具的结合是最佳的实践组合，即便你是编程高手，但是工具更能提高效率不是吗，要知道在渗透的战斗中，时间是异常宝贵的，有时候决定了你的生死，当然我们是在合法的前提下进行工作，可是谁又能保证你不会心血来潮呢。
+
+渗透测试是一种概念，不是几个戴着面罩的黑客在小黑屋里对着黑乎乎的电脑屏幕面对着不断翻滚的数据流和程序码敲键盘，当然夜晚有时是一个不错的时间段，毕竟管理员也需要休息不是吗，但是这只是相对性的，还是老话，具体问题具体分析，渗透是一次入侵，渗透测试是尽可能找出入侵所能利用的途径，从这个角度来说，渗透测试比渗透更具有挑战性不是吗？说实话，在我们进入渗透这个领域之前，应该了解下安全是什么？安全，这个与渗透相对又息息相关的词语，那么从计算机领域来看安全的概念是什么？简单来说，安全是资产与威胁的分离，通过整合可见性，访问以及信任三个要素来实施这种分离，通过范围，渠道，向量，索引四种综合约束来衡量安全，这便是一种理论上的安全标准，如果有兴趣，可以去看osstmm,开源安全测试手册，好像只有英文版。我们了解安全是为了更好的渗透，我们渗透是为了更好的安全。
+</code></pre><p>　　　渗透是多种形式且具有多种意义的，渗透不一定窃取数据，不一定夺取控制权，有时候可以放入脏数据干扰系统原本正常的数据流，我们还是回到最原本的位置，我们的目地是什么，渗透只是达到我们目地的一种手段，真正重要的地方甚至不在于渗透本身，可能渗透只是实现我们目地众多环节中的一环，我们不是为了渗透而渗透，渗透的本质便是利用能够利用的所有漏洞，世界上没有绝对完美的系统，世界上永远充满了探索与猎奇，这是渗透的思想，渗透不是必须由技术实现，也不是完全体现在客观入侵，更不是独立于计算机领域，渗透可以是一门学科，可以是一种技术，也可以是一种思想，如果渗透成为一种本能，成为一种惯性，那么，那么谁知道会怎么样，我又没有体验过，何从谈起，不过，那也是一种境界不是吗？渗透的具体技术就像一片海洋，让你惊叹之余咧嘴苦笑，掌握必要的计算机理论基础知识和编程能力还是比较基础的，其次，密码学，安全理论，通信原理，相关前沿技术还是要掌握的，工具的熟练使用和专门的渗透技能学习还是很重要的，实践是最好的学习方法，不方便说太多，毕竟也是小菜，不是专业人员，下面列一些基本通用的方法：</p>
+<p>渗透测试的一般步骤<br>一.侦察（information gathering）<br>   找出目标<br>   定义应用和用途<br>   找出系统类型<br>   找出可用端口<br>   找出运行服务<br>   对信息进行社会工程<br>   记录发现的内容<br>二.目标测试（vulnerability analysis 弱点分析）<br>   测试出目标的薄弱环节<br>   找出易受攻击的系统，并确定优先级<br>   将易受攻击的系统和资产所有者进行映射<br>   记录发现的内容<br>三.漏洞利用（exploitation tools ）<br>   漏洞利用<br>   拿到权限<br>   抓取非授权数据<br>   积极进行社会工程<br>   攻击其它系统或应用<br>   记录发现信息<br>四.提升权限（password attacks）<br>   获得更高权限<br>   获取其它账号信息<br>   使用提升的权限访问其它系统<br>   记录发现的信息<br>五.保持访问（maintaining access 保持访问）<br>   建立到目标网络的多种访问方法<br>   删除未授权访问的证据<br>   修复在漏洞利用中受影响的系统<br>   如有必要，注入假数据<br>   通过加密或其它方式隐藏通信方式<br>   记录发现的信息</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuyeren.github.io/2017/09/06/PTS/" data-id="cj78q89xa0000qcpdpzu6f9hr" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/06/学习网址合集/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">学习网址合集</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/研途/">研途</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/研途/" style="font-size: 10px;">研途</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/06/PTS/">PTS</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/06/学习网址合集/">学习网址合集</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/05/考研途中的自己/">考研途中的自己</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 &nbsp;
+	   <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
