@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android | Think and Action</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习android时间不长，这只是自己的一些观点，并且不涉及具体技术。">
+<meta name="keywords" content="技术杂谈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android">
+<meta property="og:url" content="http://wuyeren.github.io/2017/10/11/Android/index.html">
+<meta property="og:site_name" content="Think and Action">
+<meta property="og:description" content="学习android时间不长，这只是自己的一些观点，并且不涉及具体技术。">
+<meta property="og:locale" content="chinese">
+<meta property="og:updated_time" content="2017-10-19T08:50:28.791Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android">
+<meta name="twitter:description" content="学习android时间不长，这只是自己的一些观点，并且不涉及具体技术。">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Think and Action</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wuyeren.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/11/Android/" class="article-date">
+  <time datetime="2017-10-11T09:19:23.000Z" itemprop="datePublished">2017-10-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  学习android时间不长，这只是自己的一些观点，并且不涉及具体技术。</p>
+  <a id="more"></a>
+<p>  Android是一款用于移动端的嵌入式操作系统，由OHA,即开放手机联盟共同开发，其实安卓并不仅仅代表一款操作系统，安卓也是一个完整生态系统的代名词，其中包括生产厂商、硬件厂商、运营商、系统开发，第三方应用开发等等。作为开发者在这里我们把视角聚焦到操作系统，安卓操作系统基于linux内核，而且从逻辑视角来看有明显的层次划分，最底一层是与硬件交互的linux内核，提供了一个硬件抽象层，接着便是c/c++类库和运行时环境，再往上是应用程序框架，最上一层便是我们熟悉的应用层了，从层次的数量来看，我们便可以感受到其中的高度抽象化，这意味着处于第三方应用开发角色的我们大大降低了开发难度，安卓发行到现在已有10年历史了，安卓第一个版本发行于2007年11月，目前为止已经推新到安卓8概念版，每一个版本都是建立在上一个版本的基础之上，修复上一个版本的bug并推出新功能，且从第三版开始安卓版本以甜品名字命名，每一个版本都对应一个API等级，Android 7.1的ApI等级是25，自我认为，在android 5.0之后，谷歌工程师做了一些比较有意思的改变，比如绝对布局的舍弃和约束布局的引入，目前约束布局已经推出正式版，davlik虚拟机替换为ART虚拟机，动态权限管理，限制后台程序监听网络状态广播，Android分屏开发，网络请求方面舍弃httpclient，只使用httpurlconnection,还有其它的一些改动就不再列举，这些改变的最终目标都是为了系统的安全性，健壮性，便利性和更好的用户体验。即使我们将视角聚焦到操作系统，依然可以划分为许多角色，系统开发，第三方应用开发，驱动程序开发，sdk开发等等，其中第三方应用开发又包括基于sdk的开发和基于源码的开发，我们的角色就定位在基于sdk的第三方应用开发，因为android的版本更新很快，相应的技术和sdk的更新频率也比较快，所以我们必须保持时刻学习的态度，更新自己的知识架构，最好的途径之一便是浏览官网和相应社区以及阅读源码和开发手册。因为毕竟自己随时都可能被淘汰，除非你站立在技术的前沿。</p>
+<p>聊完历史，我们就来聊聊android应用程序，android应用程序也是程序，既然是程序，那么就有程序共通的地方，程序的目的自然是服务用户，方式则是数据流的处理，没错，程序本质就是处理数据流的存在，接受输入或请求，返回可读响应，对安卓来说，交易场所便是用户接口，或者说用户界面，其余在用户眼中便可视为黑盒操作，用户不必关心实现流程，关心的只是更好的用户体验，所以程序的指标便是更好的用户体验，实现这个指标就是开发者的工作，那么良好的用户体验主要体现在哪些方面呢？良好印象或者说良好的交互体验、易用性、高效，实用性。那么从这几个方面剖析下应用程序的结构和技术，用户与应用交互的场所便是用户界面，良好的交互体验便是良好的用户界面设计，用户界面设计是Activity所负责的一项工作，activity负责与用户的交互，包括用户输入，返回响应，布局管理，事件处理等，通过相应的API和需求方案，我们便可以设计出用户接口，那么怎样才算体验良好，俗气一点说，也就是用的舒服，那么就有了基于视觉体验的设计技巧，基于使用经验的设计原则，自然而然的就出现了各种控件及其众多的属性，来实现屏幕适配，视觉舒适，使用方便等基本目标，简洁大方的接口实现了易用性，复杂的逻辑处理集中到后台的黑箱操作中。用户在使用过程中所使用的各种功能避免不了使用各种权限，进行各种配置和注册，manifest.xml文件负责这项工作，关于程序的一切配置都在这里进行,而程序的运行配置，安装依赖，编译处理等需要在gradle.script脚本中进行配置。用户与程序之间进行的交互基于事件的响应，于是便出现了事件处理的相关流程，事件监听，事件处理，返回响应，这些处理流程都被集成在各种监听器之中，我们所要做的就是继承这些监听器并重写相应的方法，当然也可以使用匿名内部类或者独立方法进行监听和事件处理，说到这里，又要说到sdk的一项优点，我们很多时候不用从无到有的写出逻辑代码或者设计架构和模式，我们只要继承重写或者使用API进行黑箱操作，返回我们需要的结果，我们的工作量被很大程度的缩减。事件处理有时会出现很耗时的操作，比如说网络请求就是一种耗时操作，在主线程中进行耗时操作是极其不明智的，因为会出现ANR异常，那么就用多线程解决这种问题，如果不需要前台界面，就放入后台服务之中，事件处理完毕，结果，即数据需要传回主线程，所以出现了数据共享，有时候数据要被存储，相应的出现了文件流操作、内存存储和数据库处理操作，如果数据读取或写入太慢呢，则使用缓存技术，activity之间需要传递信息呢，使用Intent,应用程序之间需要传递信息呢，使用广播技术。需求产生技术，技术诞生功能，以上包括了逻辑处理的大多数处理功能，所以现在关于用户请求逻辑处理流程的黑箱操作就很明显了，应用基于事件监听接受用户请求，根据事件种类决定是否使用多线程处理，是否使用后台服务，如果需要数据读写，是使用文件流、内存还是数据库，是否需要进行缓存处理，事件处理流程完毕之后，将结果传回用户接口，完成响应，这个流程中的绝大多数操作都有响应API或者接口和类，甚至于相应的框架，我们只需要按照规则和流程来处理即可，并且在这个过程中我们应该时刻关注应用的性能问题，CPU的使用，内存的使用都要关注，因为我们需要实现应用的高效性。应用是模块化的，这样说是因为一个完整的应用是多人合作完成的，效率和质量都会得到提升不是吗，为了让应用的扩展性提高，可以使用组件化的思想，即插即用，更加方便和简洁。</p>
+<p>可以提出这样一种学习方法，我们学习理论思想和各种实用技术的基本使用原则思想和方法，在实际项目中或者实践中基于需求有目的的学习具体技术的使用方式，学习各种使用技巧，这应该相当高效的一种方式了。不论是应用开发，还是其余领域的软件开发的学习，首要目标是要有一个宏观的理解，形成知识架构，抓住思想精髓，之后才是各个部分知识的填充和具体技术的学习。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuyeren.github.io/2017/10/11/Android/" data-id="cj8y8tvf200004dpdi79yz501" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li></ul>
+
+       
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/19/小白生活九/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          小白生活九
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/10/小白生活八/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">小白生活八</div>
+    </a>
+  
+</nav>
+
+  
+
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/common/">common</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全学习笔记/">信息安全学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透测试/">渗透测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研途/">研途</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/社工/">社工</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/common/" style="font-size: 10px;">common</a> <a href="/tags/信息安全学习笔记/" style="font-size: 10px;">信息安全学习笔记</a> <a href="/tags/技术杂谈/" style="font-size: 10px;">技术杂谈</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a> <a href="/tags/渗透测试/" style="font-size: 10px;">渗透测试</a> <a href="/tags/研途/" style="font-size: 10px;">研途</a> <a href="/tags/社工/" style="font-size: 10px;">社工</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Arkiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Siste innlegg</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/19/小白生活九/">小白生活九</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/11/Android/">Android</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/10/小白生活八/">小白生活八</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/05/小白生活六/">小白生活六</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/03/外卖小票的信息收集/">外卖小票的信息收集</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 &nbsp;
+	   <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
