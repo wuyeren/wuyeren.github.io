@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>AI基本概念 | Think and Action</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="AI(人工智能)近年来成为一个热度极高的名词，总之我也写点东西理一下关于AI的基本概念和理论，AI不是那么神秘，好像真的那么无所不能，神乎其神，其实AI之所以那么众所周知，主要还是因为其中的一个分支，：深度学习，而且还是深度学习中的监督学习。如果说深度学习与AI的关系，AI中有一个领域称之为机器学习，深度学习是机器学习的一种方式，深度学习原来还不是这个称呼，原来称之为多层神经网络，据说是因为深度学">
+<meta name="keywords" content="技术杂谈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI基本概念">
+<meta property="og:url" content="http://wuyeren.github.io/2017/10/05/AI基本概念/index.html">
+<meta property="og:site_name" content="Think and Action">
+<meta property="og:description" content="AI(人工智能)近年来成为一个热度极高的名词，总之我也写点东西理一下关于AI的基本概念和理论，AI不是那么神秘，好像真的那么无所不能，神乎其神，其实AI之所以那么众所周知，主要还是因为其中的一个分支，：深度学习，而且还是深度学习中的监督学习。如果说深度学习与AI的关系，AI中有一个领域称之为机器学习，深度学习是机器学习的一种方式，深度学习原来还不是这个称呼，原来称之为多层神经网络，据说是因为深度学">
+<meta property="og:locale" content="chinese">
+<meta property="og:updated_time" content="2017-10-19T10:20:14.131Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI基本概念">
+<meta name="twitter:description" content="AI(人工智能)近年来成为一个热度极高的名词，总之我也写点东西理一下关于AI的基本概念和理论，AI不是那么神秘，好像真的那么无所不能，神乎其神，其实AI之所以那么众所周知，主要还是因为其中的一个分支，：深度学习，而且还是深度学习中的监督学习。如果说深度学习与AI的关系，AI中有一个领域称之为机器学习，深度学习是机器学习的一种方式，深度学习原来还不是这个称呼，原来称之为多层神经网络，据说是因为深度学">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Think and Action</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wuyeren.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-AI基本概念" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/05/AI基本概念/" class="article-date">
+  <time datetime="2017-10-05T08:07:46.000Z" itemprop="datePublished">2017-10-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      AI基本概念
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>AI(人工智能)近年来成为一个热度极高的名词，总之我也写点东西理一下关于AI的基本概念和理论，AI不是那么神秘，好像真的那么无所不能，神乎其神，其实AI之所以那么众所周知，主要还是因为其中的一个分支，：深度学习，而且还是深度学习中的监督学习。如果说深度学习与AI的关系，AI中有一个领域称之为机器学习，深度学习是机器学习的一种方式，深度学习原来还不是这个称呼，原来称之为多层神经网络，据说是因为深度学习听起来很高深所以改了名字，深度学习到底是个什么东西，形象点来说它模拟了神经元的工作方式，本质来说呢，是一种映射关系，更具体来说，是大量的函数链接或者说堆积也可以，因为深度学习的深度指的是输入与输出之间多了很多中间层，术语来说是隐藏层，是不是像很多函数堆积在一起，我们从入口放进去一些原料，经过很多层之后我们得到了完善的产品，大体上深度学习就是这样一个架构，拥有一个输入层，一个输出层，中间有大量的隐藏层。深度学习后面两个字是学习，学习指的就是怎样改善这个架构使之性能更加高效，具体是通过调节参数和超参数，其背景知识是微积分，线性代数，概率论和数理统计，这也应该是深度学习很流行的一个原因，因为你并不需要懂得一些很高深的知识，熟练这些基础课程就ok,甚至于如果你只是应用机器学习，很少进行底层开发，对应的数学知识也无需具体掌握，是呀，有时候这个时代就是这个样子，但如果你真的打算研究这个东西，还是从零开始搭建一个属于自己的神经网络架构比较好，之后再去使用一些成熟的库，这是我原来听课程的时候一个这个领域的权威人物的一个建议。</p>
+<a id="more"></a>
+<p>  说了一些关于深度学习的东西，那么关于它的超集AI就有很多种定义了，主要集中在四个方面：像人一样思考，理性的思考，像人一样行动，理性的行动。那么我们谈论的是理性的思考和行动，AI在应用中扮演什么角色？具体来说是作为一种智能代理，接收输入，进行决策，执行动作。相对应的是感知器，agent,执行器三个部分，AI正式确立领域学科是在1956年，到现在61年，有很多成熟的东西，也有很多淘汰的东西，但仍然处于应用于特定领域的弱人工智能时代，距离大家想象的通用的强人工智能时代还有一段不小的距离，AI的基础理论是哲学，心理学，神经学，数学，计算机科学等等，是一门跨学科的综合性领域，从这方面来说，AI确实很了不起，因为它集中了我们很多同样了不起的东西，它的起点就站立在很高的一个位置。总的来说呢，AI就是一个agent，我们的工作是设计出一个符合标准的agent来完成任务，这个标准的基准就是设计一个良性的agent，也就是能够正确决策的agent，此外还有很多需要考虑的因素，比如我们将一个纯真的孩子培养成一位优雅的绅士需要经过很多标准的检验，孩子相当于我们最初的agent的架构，优雅的绅士是我们的目标，对绅士的检验使我们需要的标准，相应的实现方式包括硬件，软件和数据，拿现在的机器学习来说，其实现和应用不仅要有高效的算法，还要有大量的数据和特制的芯片，这样才能保证良好的运行，这里说的大量的数据我感觉可以形容为养料，说到这里讲些额外的东西，关于数据，养料有好有坏，与之对应，数据也有好坏，良好的数据集可以有很好的表现，但坏的数据集只会增加工作的负担，还不一定能得到理想的效果，我们不能保证数据的来源，因此我们要对数据进行处理才能作为训练的输入，这个过程称之为数据清洗。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuyeren.github.io/2017/10/05/AI基本概念/" data-id="cj8ybgqev00007fpdt72dugzn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li></ul>
+
+       <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/11/Android/" title="Android" rel="bookmark">Android</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/16/浅谈linux/" title="浅谈linux" rel="bookmark">浅谈linux</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/14/编程感触上/" title="编程感触上" rel="bookmark">编程感触上</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/14/编程感触下/" title="编程感触下" rel="bookmark">编程感触下</a></h3></div></li></ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/05/小白生活六/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          小白生活六
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/03/外卖小票的信息收集/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">外卖小票的信息收集</div>
+    </a>
+  
+</nav>
+
+  
+
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/common/">common</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全学习笔记/">信息安全学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透测试/">渗透测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研途/">研途</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/社工/">社工</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/common/" style="font-size: 10px;">common</a> <a href="/tags/信息安全学习笔记/" style="font-size: 10px;">信息安全学习笔记</a> <a href="/tags/技术杂谈/" style="font-size: 16.67px;">技术杂谈</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a> <a href="/tags/渗透测试/" style="font-size: 10px;">渗透测试</a> <a href="/tags/研途/" style="font-size: 10px;">研途</a> <a href="/tags/社工/" style="font-size: 13.33px;">社工</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/19/小白生活九/">小白生活九</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/16/浅谈linux/">浅谈linux</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/14/编程感触下/">编程感触下</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/14/编程感触上/">编程感触上</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/13/侧写/">侧写</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 &nbsp;
+	   <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

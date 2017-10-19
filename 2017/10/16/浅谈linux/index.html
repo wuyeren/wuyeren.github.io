@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>浅谈linux | Think and Action</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="谈到Linux，大概又要回到最初学习C语言的时候，那时候还在懵懂的使用vc++6.0，之后看了一次C语言课程，linux环境教学，印象最深的一句话就是学好C就得用linux，再加上据说黑客都是在玩linux，听起来很神秘，怎么办，装呗。物理机不想换系统，双系统？好吧，如果你想来回装机折腾的话。这时候出现了虚拟机，记得初次安装VM我费了好大劲，其实不得不说，原来，包括现在，我在安装软件，搭建测试环境">
+<meta name="keywords" content="技术杂谈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈linux">
+<meta property="og:url" content="http://wuyeren.github.io/2017/10/16/浅谈linux/index.html">
+<meta property="og:site_name" content="Think and Action">
+<meta property="og:description" content="谈到Linux，大概又要回到最初学习C语言的时候，那时候还在懵懂的使用vc++6.0，之后看了一次C语言课程，linux环境教学，印象最深的一句话就是学好C就得用linux，再加上据说黑客都是在玩linux，听起来很神秘，怎么办，装呗。物理机不想换系统，双系统？好吧，如果你想来回装机折腾的话。这时候出现了虚拟机，记得初次安装VM我费了好大劲，其实不得不说，原来，包括现在，我在安装软件，搭建测试环境">
+<meta property="og:locale" content="chinese">
+<meta property="og:updated_time" content="2017-10-19T10:20:57.031Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈linux">
+<meta name="twitter:description" content="谈到Linux，大概又要回到最初学习C语言的时候，那时候还在懵懂的使用vc++6.0，之后看了一次C语言课程，linux环境教学，印象最深的一句话就是学好C就得用linux，再加上据说黑客都是在玩linux，听起来很神秘，怎么办，装呗。物理机不想换系统，双系统？好吧，如果你想来回装机折腾的话。这时候出现了虚拟机，记得初次安装VM我费了好大劲，其实不得不说，原来，包括现在，我在安装软件，搭建测试环境">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Think and Action</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wuyeren.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-浅谈linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/16/浅谈linux/" class="article-date">
+  <time datetime="2017-10-16T09:19:23.000Z" itemprop="datePublished">2017-10-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅谈linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>谈到Linux，大概又要回到最初学习C语言的时候，那时候还在懵懂的使用vc++6.0，之后看了一次C语言课程，linux环境教学，印象最深的一句话就是学好C就得用linux，再加上据说黑客都是在玩linux，听起来很神秘，怎么办，装呗。物理机不想换系统，双系统？好吧，如果你想来回装机折腾的话。这时候出现了虚拟机，记得初次安装VM我费了好大劲，其实不得不说，原来，包括现在，我在安装软件，搭建测试环境包括写代码时都会遇到很多奇奇怪怪的问题，可能人品比较差。</p>
+<a id="more"></a>
+<p>Linux虚拟环境搞定，开启虚拟机后进入了这个神奇的…恩，深坑中，有一句话说的好，linux一切皆文件，万般皆文本。键盘在手，几乎没有你做不到的事情，但是，那是对于沉浸在深坑中的坑神而言，就算真的一切处理都可以在字符界面完成，时间久了也会产生视觉疲劳和枯燥感，还好，除字符界面外linux还有相比windows性能和体验更加优异的图形环境。当然，这是个人版，服务器没必要消耗性能去做没有意义的事情，恩，一般来说。</p>
+<p>Linux给人的印象应该是黑乎乎的字符界面和只适合编程人员的操作度，其实不然，迅雷，酷我，百度云，视频播放器，还有其它软件皆有大神制作的linux版本，并且在github上可以找到很多兼具特色和性能的源代码和安装包，linux加上图形界面便已经远远的拉开了windows，最重要的是linux几乎不会感染什么病毒，轻奢的图形界面体验也是比较舒服。</p>
+<p>当然linux并不是为了娱乐，开发人员使用linux也是因为这是一个优秀的开发平台，为什么，因为linux完全可以按照你的个性定制你自己的发行版，按照你的工作需要配置高效简洁的开发环境，并且安全性和可靠性都会得到保障，linux是众多开源项目中的一种，开源是一个自由的概念，我们可以阅读优秀作品的源码，我们可以直接高效的进行学习，我们可以更便捷的进行敏捷开发，我们可以集中众人的智慧开发出更优秀的作品。</p>
+<p>当然，如果我们不是一名linux开发者，我们不用过多了解linux的内核，我们只要懂得如何操作，不必去理会其运行原理，对于使用linux的开发者以及新手包括老手来言，备份应该成为一种习惯，反正我是深受其害，频繁的进行重装系统这种体力活，还要时刻忍受坑人的网速，这时候如果生活在美国或许会比较好，不必上个网都要寻找安全的代理，说到上网，其实我们认知的互联网只是整个网络海洋的一小部分，在海洋的深处还拥有着占据整个网络90%的未知网络，称为深网，深网也只是一个很寻常的概念，但在深网中却存在着不寻常的东西，暗网，最初服务于美国间谍机构，后来开放于平民，暗网，是一个无法追踪其地址，一切皆是陌生人的网络，官方说法是这样，但是里面毕竟掺杂了太多其它因素，毕竟它建立的目的就是服务于美国政府，暗网中存在着另一个世界，犯罪，暗杀，贩毒等等，。当然还有好的一面，进入暗网可以通过洋葱路由的方式，只是在我们国家因为防火墙长城的存在还是有些困难，当然我是没有进入过，其实，没有追踪不到的地址，只是看你的价值等价与否，希望大家做一名知法守法的良好公民。</p>
+<p>总的来说，根据自己的需求选择linux发行版或者定制自己的系统，安装系统，配置环境，并且进行备份，接着就可以随心所欲的使用，准确的说慢慢熟悉这个透露着神秘的系统。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuyeren.github.io/2017/10/16/浅谈linux/" data-id="cj8ybgqgw000u7fpdh5c104nw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li></ul>
+
+       <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/05/AI基本概念/" title="AI基本概念" rel="bookmark">AI基本概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/11/Android/" title="Android" rel="bookmark">Android</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/14/编程感触上/" title="编程感触上" rel="bookmark">编程感触上</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/14/编程感触下/" title="编程感触下" rel="bookmark">编程感触下</a></h3></div></li></ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/19/小白生活九/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          小白生活九
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/14/编程感触下/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">编程感触下</div>
+    </a>
+  
+</nav>
+
+  
+
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/common/">common</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全学习笔记/">信息安全学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透测试/">渗透测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研途/">研途</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/社工/">社工</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/common/" style="font-size: 10px;">common</a> <a href="/tags/信息安全学习笔记/" style="font-size: 10px;">信息安全学习笔记</a> <a href="/tags/技术杂谈/" style="font-size: 16.67px;">技术杂谈</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a> <a href="/tags/渗透测试/" style="font-size: 10px;">渗透测试</a> <a href="/tags/研途/" style="font-size: 10px;">研途</a> <a href="/tags/社工/" style="font-size: 13.33px;">社工</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/19/小白生活九/">小白生活九</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/16/浅谈linux/">浅谈linux</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/14/编程感触下/">编程感触下</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/14/编程感触上/">编程感触上</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/13/侧写/">侧写</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 &nbsp;
+	   <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
