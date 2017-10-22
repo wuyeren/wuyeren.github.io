@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>小白生活八 | Think and Action</title>
+  <title>sqlmap使用笔记 | Think and Action</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我们应该也必须学习，学习是我们这行生物进化的必经途径，假设将我们这行比喻为一个完整的世界，那么我们这个世界的变化和发展是迅速的，为了适应这种变化，乃至引领这种变化，你都需要学习，而且必须高效学习，小白说。">
-<meta name="keywords" content="日志">
+  <meta name="description" content="首先，sqlmap是一款开源自动化数据库注入软件，基于布尔注入，错误返回注入，时间延迟注入，堆注入，联合注入等技术可以检测操作系统和数据库版本并且从数据库获得控制权和信息，本文介绍一下简单的sqlmap使用命令。">
+<meta name="keywords" content="渗透测试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小白生活八">
-<meta property="og:url" content="http://wuyeren.github.io/2017/10/10/小白生活八/index.html">
+<meta property="og:title" content="sqlmap使用笔记">
+<meta property="og:url" content="http://wuyeren.github.io/2017/10/22/sqlmap使用笔记/index.html">
 <meta property="og:site_name" content="Think and Action">
-<meta property="og:description" content="我们应该也必须学习，学习是我们这行生物进化的必经途径，假设将我们这行比喻为一个完整的世界，那么我们这个世界的变化和发展是迅速的，为了适应这种变化，乃至引领这种变化，你都需要学习，而且必须高效学习，小白说。">
+<meta property="og:description" content="首先，sqlmap是一款开源自动化数据库注入软件，基于布尔注入，错误返回注入，时间延迟注入，堆注入，联合注入等技术可以检测操作系统和数据库版本并且从数据库获得控制权和信息，本文介绍一下简单的sqlmap使用命令。">
 <meta property="og:locale" content="chinese">
-<meta property="og:updated_time" content="2017-10-10T11:43:28.313Z">
+<meta property="og:updated_time" content="2017-10-22T13:20:01.786Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小白生活八">
-<meta name="twitter:description" content="我们应该也必须学习，学习是我们这行生物进化的必经途径，假设将我们这行比喻为一个完整的世界，那么我们这个世界的变化和发展是迅速的，为了适应这种变化，乃至引领这种变化，你都需要学习，而且必须高效学习，小白说。">
+<meta name="twitter:title" content="sqlmap使用笔记">
+<meta name="twitter:description" content="首先，sqlmap是一款开源自动化数据库注入软件，基于布尔注入，错误返回注入，时间延迟注入，堆注入，联合注入等技术可以检测操作系统和数据库版本并且从数据库获得控制权和信息，本文介绍一下简单的sqlmap使用命令。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -61,10 +61,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-小白生活八" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-sqlmap使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/10/10/小白生活八/" class="article-date">
-  <time datetime="2017-10-10T09:53:33.000Z" itemprop="datePublished">2017-10-10</time>
+    <a href="/2017/10/22/sqlmap使用笔记/" class="article-date">
+  <time datetime="2017-10-22T11:20:47.000Z" itemprop="datePublished">2017-10-22</time>
 </a>
     
   </div>
@@ -75,7 +75,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      小白生活八
+      sqlmap使用笔记
     </h1>
   
 
@@ -83,39 +83,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  我们应该也必须学习，学习是我们这行生物进化的必经途径，假设将我们这行比喻为一个完整的世界，那么我们这个世界的变化和发展是迅速的，为了适应这种变化，乃至引领这种变化，你都需要学习，而且必须高效学习，小白说。</p>
+        <p>首先，sqlmap是一款开源自动化数据库注入软件，基于布尔注入，错误返回注入，时间延迟注入，堆注入，联合注入等技术可以检测操作系统和数据库版本并且从数据库获得控制权和信息，本文介绍一下简单的sqlmap使用命令。</p>
 <a id="more"></a>
-<p>  小白除了定期执行任务之外，还会抽出一部分时间来整理自己的经验和进行新内容的学习，今天是小白的学习时间，小白首先整理了一下这几天的实践经验，通常小白会准备一张白纸，进行一场头脑风暴，最后纸上像是乱写乱画了一堆东西，但这不重要，纸张只是一种形式，重要的是我们头脑中刚刚沉淀下来的逻辑成果，这些逻辑成果可以去填充或者更新我们的知识大厦，消化了这些东西之后，小白会接着自己现有的知识结构去学习一些新东西，知识应该是连贯的，不要一下子去学习那些跨度太大的东西，这样效率不是很高，小白一般都是会去一些常去的社区，网站，查看些最新发布的文章，去看下论文和新技术的官方网站，当然，更重要的是还有一些内部交流组织分享的专有资源，学习方法因人而异，有时候学习到了一定程度，自然会形成自己高效的学习方法，我们的思维同样也会慢慢转变。</p>
-<p>  我们追求的是高效的学习，用最小的成本来得到最大效果，这不仅仅是一句口号，也不单单是你了解或使用某种方法可以实现的，这需要积累，经验的积累，知识的积累，方法的精进，只有这样，你才会一法通万法通，无论是对旧知识的更深理解，还是对新知识的领悟都能提高不少效率，当然，收获也得付出，小白将自己这几天的学习所得整理成一篇文章发布到网站上，这样大家都能共赢，记住，你不是孤独的。</p>
+<p>针对入门学者，可以使用 <figure class="highlight plain"><figcaption><span>--wizard ``` 进行学习交互式操作</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">1. ```sqlmap -u“url” [--cookies=&quot;&quot;|--data=&quot;&quot; -b [-current-db -current-user] option]</div></pre></td></tr></table></figure></p>
+<ol>
+<li>option = [–users –password –dbs –tables –columns –dump]</li>
+<li>sqlmap -hh / –version / –update</li>
+<li>参数：–param-del</li>
+</ol>
+<p>当GET或POST的数据需要用其他字符分割测试参数的时候需要用到此参数。</p>
+<p>例子：</p>
+<p>python sqlmap.py -u “<a href="http://www.target.com/vuln.php" target="_blank" rel="external">http://www.target.com/vuln.php</a>“ –data=”query=foobar;id=1” –param-del=”;” -f –banner –dbs –users</p>
+<p><a href="http://www.cnblogs.com/hongfei/p/3872156.html" target="_blank" rel="external">中文用户手册链接</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wuyeren.github.io/2017/10/10/小白生活八/" data-id="cj92s6lfh000ppipdkrx43ayz" class="article-share-link">Share</a>
+      <a data-url="http://wuyeren.github.io/2017/10/22/sqlmap使用笔记/" data-id="cj92s6le90003pipdkk3gzssd" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志/">日志</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透测试/">渗透测试</a></li></ul>
 
-       <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/05/小白生活一/" title="小白生活一" rel="bookmark">小白生活一</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/01/小白生活三/" title="小白生活三" rel="bookmark">小白生活三</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/19/小白生活九/" title="小白生活九" rel="bookmark">小白生活九</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/05/小白生活二/" title="小白生活二" rel="bookmark">小白生活二</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/03/小白生活五/" title="小白生活五" rel="bookmark">小白生活五</a></h3></div></li></ul>
+       <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/06/PTS/" title="PTS" rel="bookmark">PTS</a></h3></div></li></ul>
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2017/10/11/Android/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Android
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/09/小白生活七/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/10/22/docker安装使用笔记/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">小白生活七</div>
+      <div class="article-nav-title">docker安装使用笔记</div>
     </a>
   
 </nav>
