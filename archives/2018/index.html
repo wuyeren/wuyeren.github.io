@@ -3,20 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android Pts | Think and Action</title>
+  <title>Archives: 2018 | Think and Action</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android取证">
-<meta name="keywords" content="渗透测试">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Android Pts">
-<meta property="og:url" content="http://wuyeren.github.io/2017/10/23/Android-Pts/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Think and Action">
+<meta property="og:url" content="http://wuyeren.github.io/archives/2018/index.html">
 <meta property="og:site_name" content="Think and Action">
-<meta property="og:description" content="Android取证">
 <meta property="og:locale" content="chinese">
-<meta property="og:updated_time" content="2017-10-23T11:05:05.005Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Pts">
-<meta name="twitter:description" content="Android取证">
+<meta name="twitter:title" content="Think and Action">
   
   
     <link rel="icon" href="/favicon.png">
@@ -61,83 +56,39 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Android-Pts" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/23/Android-Pts/" class="article-date">
-  <time datetime="2017-10-23T11:01:39.000Z" itemprop="datePublished">2017-10-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      Android Pts
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/02/09/近未来信息科技/" class="archive-article-date">
+  <time datetime="2018-02-09T06:43:31.000Z" itemprop="datePublished">Feb 9</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/02/09/近未来信息科技/">近未来信息科技</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android取证</p>
-<a id="more"></a>
-<p>使用    AFLogical    提取所有联系人、通话记录和短信</p>
-<p>使用    Andriller    提取应用数据</p>
-<p>使用　dd　创建系统映像，执行文件拷贝</p>
-<p>使用adb备份功能</p>
-<ol>
-<li>这可以通过在终端中执行     adb    backup     命令,后面附带应用程序的包名来完成。    如果我们<br>不知道应用程序的准确包名称,我们可以使用     pm     列出所有包,然后过滤应用程序名称。</li>
-<li>执行此操作的另一种方法是使用     pm    list    package     命令,其中     -f     标志指定要在包名称中<br>查找的字符串。</li>
-<li>接下来,我们可以简单地使用应用程序的包名称,来备份任何我们需要的应用程序。<br>adb    backup    [package    name]    -f    [destination    file    name]</li>
-<li>目标文件将以文件扩展名     .ab     (Android    备份)存储。    在这里,我们采集了    WhatsApp<br>应用程序的备份。</li>
-<li>一旦我们运行命令,它将暂停,并要求我们在设备上确认,如下面的截图所示:</li>
-<li>在这里,我们需要选择     Back    up    my    data     (备份我的数据)选项,并且还可以为备份指定<br>加密密码。    一旦备份过程完成,我们将获得     whatsapp_backup.ab     文件。</li>
-<li>接下来,我们需要解压此备份,以便从     .ab     文件获取数据库。    为此,我们将使<br>用     dd     和     openssl     创建一个     .tar     文件,然后我们可以解压它。</li>
-<li>现在,由于我们获得了     .tar     文件,我们可以使用     tar    xvf     简单解压它。</li>
-</ol>
-<p>Drozer是一款综合的安全评估和攻击的Android框架，据 产品介绍 里说，Drozer可以全面评估app的安全性，并帮助团队把app的安全风险保持在可控范围内。</p>
-<p>检查应用程序的签名<br>jarsigner    -verify    -certs    -verbose    testing.apk</p>
-<p>unzip    　testing.apk<br>$    cd    META-INF<br>$    openssl    pkcs7    -in    CERT.RSA    -print_certs    -inform    DER    -out    out.cer<br>$    cat    out.cer<br>这在检测和分析未知的    Android         .apk     示例时非常有用</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wuyeren.github.io/2017/10/23/Android-Pts/" data-id="cjdfkk6cn0003zupd8z8xvzu8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透测试/">渗透测试</a></li></ul>
-
-       <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/09/06/PTS/" title="PTS" rel="bookmark">PTS</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/22/sqlmap使用笔记/" title="sqlmap使用笔记" rel="bookmark">sqlmap使用笔记</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/23/社工/" title="社工" rel="bookmark">社工</a></h3></div></li></ul>
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/02/09/近未来信息科技/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          近未来信息科技
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/10/23/社工/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">社工</div>
-    </a>
-  
-</nav>
-
-  
-
 </article>
+  
+  
+    </div></section>
+  
 
 
 </section>
