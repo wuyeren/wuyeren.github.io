@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>几种数据库的介绍和比对 | Think and Action</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文主要涉及以下几种数据库：mysql， sqlite， redis， mongodb， memcached. 其中mysql和sqlite是关系型数据库，即是建立在关系模型上的数据库，关系模型包括关系数据结构，关系操作集合，关系完整性约束三个部分，简单点来说是维护二维行列表格的数据库，redis，mongodb和memcached是非关系型数据库，主要以键值对的形式进行数据的存储和查询，此外，R">
+<meta name="keywords" content="技术杂谈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="几种数据库的介绍和比对">
+<meta property="og:url" content="http://wuyeren.github.io/2018/04/01/几种数据库的介绍和比对/index.html">
+<meta property="og:site_name" content="Think and Action">
+<meta property="og:description" content="本文主要涉及以下几种数据库：mysql， sqlite， redis， mongodb， memcached. 其中mysql和sqlite是关系型数据库，即是建立在关系模型上的数据库，关系模型包括关系数据结构，关系操作集合，关系完整性约束三个部分，简单点来说是维护二维行列表格的数据库，redis，mongodb和memcached是非关系型数据库，主要以键值对的形式进行数据的存储和查询，此外，R">
+<meta property="og:locale" content="chinese">
+<meta property="og:updated_time" content="2018-04-01T08:17:08.306Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="几种数据库的介绍和比对">
+<meta name="twitter:description" content="本文主要涉及以下几种数据库：mysql， sqlite， redis， mongodb， memcached. 其中mysql和sqlite是关系型数据库，即是建立在关系模型上的数据库，关系模型包括关系数据结构，关系操作集合，关系完整性约束三个部分，简单点来说是维护二维行列表格的数据库，redis，mongodb和memcached是非关系型数据库，主要以键值对的形式进行数据的存储和查询，此外，R">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Think and Action</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Поиск"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wuyeren.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-几种数据库的介绍和比对" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/01/几种数据库的介绍和比对/" class="article-date">
+  <time datetime="2018-04-01T03:33:37.000Z" itemprop="datePublished">2018-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      几种数据库的介绍和比对
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要涉及以下几种数据库：mysql， sqlite， redis， mongodb， memcached. 其中mysql和sqlite是关系型数据库，即是建立在关系模型上的数据库，关系模型包括关系数据结构，关系操作集合，关系完整性约束三个部分，简单点来说是维护二维行列表格的数据库，redis，mongodb和memcached是非关系型数据库，主要以键值对的形式进行数据的存储和查询，此外，Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合);memcached是内存对象缓存系统，提供缓存机制的功能，且存储在内存中，mongodb和memcached是分布式系统。</p>
+<a id="more"></a>
+<p>数据库也是程序，因此会涉及到安装，配置，使用，本文介绍数据库在windows和linux系统下的安装，先说下两种系统安装软件的方式，windows下安装软件相对来说比较简单，因为软件都有相应的图形安装方式，基本一路默认即可，这里重点说一下linux安装软件的方式，第一种是源码安装，也就是下载程序源代码，解压随后在本地编译安装，具体的流程包括三步：<br>    ./configure [检查编译情况，主要是查看系统，依赖等]<br>    make [安装]<br>    make install [安装]<br>    make clean [清理]<br>    make uninstall [卸载]<br>第二种是通过包管理器进行安装，比如rpm, dpkg 等包管理器安装，使用help选项可以查看命令语法，第三种是通过apt等命令在线安装，同样通过help选项可以查看命令语法。同样的，这几种方式也可以用于卸载，只是相应的命令选项不同。</p>
+<p>下面说一下几种数据库的安装，主要就是上面几种安装方式：<br>mysql<br>windows:<br>下载window版本的mysql安装包，并解压安装包，双击 setup.exe 文件，接下来你只需要安装默认的配置点击”next”即可，默认情况下安装信息会在C:\mysql目录中。接下来你可以通过”开始” ，在搜索框中输入 “ cmd” 命令 ，在命令提示符上切换到 C:\mysql\bin 目录，并输入一下命令：<br>mysqld.exe –console<br>如果安装成功以上命令将输出一些mysql启动及InnoDB信息。<br>linux:<br>    yum install mysql<br>    yum install mysql-server<br>    yum install mysql-devel<br>    mysqladmin –version [验证是否安装]<br>redis：<br>windows:<br>下载windows版本的安装包，解压安装包，打开cmd通过cd命令进入相应的安装包目录，执行redis-server.exe redis.windows.conf<br>linux:<br>    wget <a href="http://download.redis.io/releases/redis-2.8.17.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-2.8.17.tar.gz</a><br>    tar xzf redis-2.8.17.tar.gz<br>    cd redis-2.8.17<br>    make<br>    cd src<br>    ./redis-server redis.conf<br>    [ubuntu]:<br>    sudo apt-get update<br>    sudo apt-get install redis-server<br>    启动 Redis<br>    redis-server<br>sqlite<br>widows:<br>下载 sqlite-tools-win32-<em>.zip 和 sqlite-dll-win32-</em>.zip 压缩文件。<br>创建文件夹 C:\sqlite，并在此文件夹下解压上面两个压缩文件，将得到 sqlite3.def、sqlite3.dll 和 sqlite3.exe 文件。<br>添加 C:\sqlite 到 PATH 环境变量，最后在命令提示符下，使用 sqlite3 命令，将显示如下结果<br>C:>sqlite3<br>SQLite version 3.7.15.2 2013-01-09 11:53:05<br>Enter “.help” for instructions<br>Enter SQL statements terminated with a “;”<br>sqlite&gt;</p>
+<p>linux:<br>    系统自带sqlite，如果没有运行以下命令：<br>    tar xvfz sqlite-autoconf-3071502.tar.gz<br>    cd sqlite-autoconf-3071502<br>    ./configure –prefix=/usr/local<br>    make<br>    make install</p>
+<p>mongodb<br>windows:<br>下载二进制安装包，解压后运行程序进行图形界面安装，之后在盘符根目录下创建/data/db目录。<br>linux:<br>    curl -O <a href="https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz" target="_blank" rel="external">https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz</a><br>    tar -zxvf mongodb-linux-x86_64-3.0.6.tgz<br>    mv  mongodb-linux-x86_64-3.0.6/ /usr/local/mongodb<br>    export PATH=<mongodb-install-directory>/bin:$PATH<br>    mkdir -p /data/db<br>安装之后的一些配置</mongodb-install-directory></p>
+<p>创建目录，执行下面的语句来创建数据库和日志文件的目录<br>mkdir c:\data\db<br>mkdir c:\data\log<br>创建配置文件<br>创建一个配置文件。该文件必须设置 systemLog.path 参数，包括一些附加的配置选项更好。<br>例如，创建一个配置文件位于 C:\mongodb\mongod.cfg，其中指定 systemLog.path 和 storage.dbPath。具体配置内容如下：<br>systemLog:<br>    destination: file<br>    path: c:\data\log\mongod.log<br>storage:<br>    dbPath: c:\data\db<br>安装 MongoDB服务<br>通过执行mongod.exe，使用–install选项来安装服务，使用–config选项来指定之前创建的配置文件。<br>C:\mongodb\bin\mongod.exe –config “C:\mongodb\mongod.cfg” –install</p>
+<p>memcached<br>windows:<br>解压下载的安装包到指定目录。<br>使用管理员身份执行以下命令将 memcached 添加来任务计划表中：<br>schtasks /create /sc onstart /tn memcached /tr “‘c:\memcached\memcached.exe’ -m 512”<br>linux:<br>Linux系统安装memcached，首先要先安装libevent库。<br>sudo apt-get install libevent libevent-deve<br>（Ubuntu/Debian）<br>yum install libevent libevent-deve                      （Redhat/Fedora/Centos）<br>Ubuntu/Debian<br>sudo apt-get install memcached<br>Redhat/Fedora/Centos<br>yum install memcached<br>FreeBSD<br>portmaster databases/memcached<br>以上就是简单的一些安装方式，至于运行方面一般都是先启动服务，接着使用客户端程序进行数据库的操作，下面介绍一下几种数据库的运行和连接方式。<br>mysql<br>首先启动服务，windows平台打开cmd使用<code>net start mysqld</code>命令，或者使用任务管理器、计算机管理等图形接口开启服务，linux平台使用<code>service start mysql</code>开启服务，接着使用<code>mysql -uroot -p</code>以管理员权限执行操作。<br>sqlite<br>直接在命令终端键入<code>sqlite3</code>进行操作。<br>redis<br>windows打开cmd通过cd命令进入安装目录，接着使用<code>redis-server.exe</code>启动服务，打开另一个窗口，使用<code>redis-cli.exe -h localhost -p 6379</code>连接数据库进行操作，linux中相应的命令为<code>redis-server; Redis-cli</code><br>memcached<br>这个数据库比较简单，直接使用以下命令连接：<br>telnet host port<br>mongodb<br>首先启动服务<br>widows：<code>C:\mongodb\bin\mongod --dbpath c:\data\db</code><br>linux：<code>service mongod start</code><br>连接数据库<br>windows：<code>C:\mongodb\bin\mongo</code><br>linux：<code>cd [mongodir]; ./mongo</code><br>现在总结下运行方式，不仅仅包括以上数据库，也包括其它服务软件，首先开启服务，开启服务可以直接运行各软件bin目录下的二进制文件，或者使用net命令和service命令或者图形界面间接运行二进制文件，服务运行之后同样可以运用这些方式停止服务，只是使用不同的选项参数，服务运行之后，通过bin目录下的客户端二进制文件进行连接，或者通过一些第三方软件进行连接，这样比较容易操作。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wuyeren.github.io/2018/04/01/几种数据库的介绍和比对/" data-id="cjfgjay2c000o06pdibvyjvbl" class="article-share-link">Поделиться</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li></ul>
+
+       <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/05/AI基本概念/" title="AI基本概念" rel="bookmark">AI基本概念</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/11/Android/" title="Android" rel="bookmark">Android</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/22/docker安装使用笔记/" title="docker安装使用笔记" rel="bookmark">docker安装使用笔记</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/16/浅谈linux/" title="浅谈linux" rel="bookmark">浅谈linux</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2017/10/14/编程感触上/" title="编程感触上" rel="bookmark">编程感触上</a></h3></div></li></ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/27/信息收集/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Предыдущий</strong>
+      <div class="article-nav-title">信息收集</div>
+    </a>
+  
+</nav>
+
+  
+
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Метки</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/common/">common</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全学习笔记/">信息安全学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透测试/">渗透测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研途/">研途</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/社工/">社工</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Облако меток</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/common/" style="font-size: 10px;">common</a> <a href="/tags/信息安全学习笔记/" style="font-size: 10px;">信息安全学习笔记</a> <a href="/tags/技术杂谈/" style="font-size: 17.5px;">技术杂谈</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a> <a href="/tags/渗透测试/" style="font-size: 15px;">渗透测试</a> <a href="/tags/研途/" style="font-size: 10px;">研途</a> <a href="/tags/社工/" style="font-size: 12.5px;">社工</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Архив</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Недавние записи</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/01/几种数据库的介绍和比对/">几种数据库的介绍和比对</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/27/信息收集/">信息收集</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/27/谈谈我大四离开校园后的经历/">谈谈我大四离开校园后的经历</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/03/web安全学习体会/">web安全学习体会</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/28/wifi无线渗透/">wifi无线渗透</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 &nbsp;
+	   <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
