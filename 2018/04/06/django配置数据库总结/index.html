@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Think and Action">
 <meta property="og:description" content="主要是挺简单的一个配置出现了老长时间没解决的问题，在此记录一下。">
 <meta property="og:locale" content="chinese">
-<meta property="og:updated_time" content="2018-04-06T12:09:59.089Z">
+<meta property="og:updated_time" content="2018-04-09T08:55:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="django配置数据库总结">
 <meta name="twitter:description" content="主要是挺简单的一个配置出现了老长时间没解决的问题，在此记录一下。">
@@ -84,12 +84,12 @@
       
         <p>主要是挺简单的一个配置出现了老长时间没解决的问题，在此记录一下。</p>
 <a id="more"></a>
-<p>首先说一下django配置数据库的流程，前提条件是你已经安装好数据库(这里以mysql为例，在另一篇文章里有几种数据库的安装和配置方式)，接着在项目中的settings文件中配置数据库的各项参数，参考下面：<br>    ATABASES = {<br>        ‘default’: {<br>            ‘ENGINE’: ‘django.db.backends.mysql’,<br>            ‘NAME’: ‘poll’,<br>            ‘USER’: ‘shenji’,<br>            ‘PASSWORD’: ‘shenji’,<br>            ‘HOST’: ‘127.0.0.1’,<br>            ‘PORT’: ‘3306’,<br>        }<br>    }<br>接下来安装Python对应数据库的驱动程序，从mysql官方网站即可下载相应的程序，但在安装过程中出现缺失mysql_config文件错误，于是在网上查看了一下mysql_config，发现是管理mysql客户端的命令文件，并且附有修复方案，<code>apt-get install libmysqlclient-dev</code>，执行上述命令发现出现一下错误，<br>(图)[‘../images/001.png’]<br>对应解决办法只能从网上下载mysql_config文件进行安装，安装位置在/usr/local/bin,只是我所使用的操作系统中已经安装了相应的数据库驱动程序，于是省去了这一步，最后安装操作数据库的模块，python2.X使用mysqldb，而python3.X使用pymysql，当然还有其它模块代替，安装命令时使用<br><code>pip install mysql-python  piip3 install pymysql</code>,一般情况下来说到此就可以正常使用了，但我使用时出现了mysqldb这个模块不存在的错误，当时我很纳闷，我的django版本是2.0.4，python版本是3.6,应该使用pymysql模块,而且我已经安装了这个模块，不应该出现这样的错误，后来想到pymysql是基于mysqldb的，可能底层还是mysqldb的实现方法，于是上网查了下解决方案，<br>方案为在项目的<strong>init</strong>.py文件中增加以下语句:<br>    import pymysql<br>    pymysql.install_as_MySQLdb()<br>这句代码的意思是让pymysql以mysqldb的方式运行。<br>本来以为问题解决了，可又出现了另一个错误，数据库拒绝用户连接，用户名和密码都正确，但是出现了错误代码为1698的错误，经查证是因为mysql增加了一个新特性，在mysql.user表中增加了plugin列，里面不同的值有相应的规则约束，将对应用户的plugin列的值改为‘mysql_native_password’即可，整个步骤如下：<br>    sudo service mysql stop<br>    sudo mysqld_safe –skip-grant-tables &amp;<br>    mysql -u root mysql<br>    update mysql.user set authentication_string=PASSWORD(‘newPwd’), plugin=’mysql_native_password’ where user=’root’;<br>    flush privileges;<br>现在问题解决了，当时我是想了另一个办法，我新建了一个用户，但是登录时出现了错误为1045的错误，出现这种错误有一下几种情况，用户名或密码不对，密码未设置，或者ip限制，显然我这里是ip限制了，将ip改为localhost，问题解决了。到了现在，问题全部解决，本来挺简单的一个事出现了这么多问题。</p>
+<p>首先说一下django配置数据库的流程，前提条件是你已经安装好数据库(这里以mysql为例，在另一篇文章里有几种数据库的安装和配置方式)，接着在项目中的settings文件中配置数据库的各项参数，参考下面：<br>    ATABASES = {<br>        ‘default’: {<br>            ‘ENGINE’: ‘django.db.backends.mysql’,<br>            ‘NAME’: ‘poll’,<br>            ‘USER’: ‘shenji’,<br>            ‘PASSWORD’: ‘shenji’,<br>            ‘HOST’: ‘127.0.0.1’,<br>            ‘PORT’: ‘3306’,<br>        }<br>    }<br>接下来安装Python对应数据库的驱动程序，从mysql官方网站即可下载相应的程序，但在安装过程中出现缺失mysql_config文件错误，于是在网上查看了一下mysql_config，发现是管理mysql客户端的命令文件，并且附有修复方案，<code>apt-get install libmysqlclient-dev</code>，执行上述命令发现出现一下错误，<br><a href="&#39;../images/001.png&#39;">图</a><br>对应解决办法只能从网上下载mysql_config文件进行安装，安装位置在/usr/local/bin,只是我所使用的操作系统中已经安装了相应的数据库驱动程序，于是省去了这一步，最后安装操作数据库的模块，python2.X使用mysqldb，而python3.X使用pymysql，当然还有其它模块代替，安装命令时使用<br><code>pip install mysql-python  piip3 install pymysql</code>,一般情况下来说到此就可以正常使用了，但我使用时出现了mysqldb这个模块不存在的错误，当时我很纳闷，我的django版本是2.0.4，python版本是3.6,应该使用pymysql模块,而且我已经安装了这个模块，不应该出现这样的错误，后来想到pymysql是基于mysqldb的，可能底层还是mysqldb的实现方法，于是上网查了下解决方案，<br>方案为在项目的<strong>init</strong>.py文件中增加以下语句:<br>    import pymysql<br>    pymysql.install_as_MySQLdb()<br>这句代码的意思是让pymysql以mysqldb的方式运行。<br>本来以为问题解决了，可又出现了另一个错误，数据库拒绝用户连接，用户名和密码都正确，但是出现了错误代码为1698的错误，经查证是因为mysql增加了一个新特性，在mysql.user表中增加了plugin列，里面不同的值有相应的规则约束，将对应用户的plugin列的值改为‘mysql_native_password’即可，整个步骤如下：<br>    sudo service mysql stop<br>    sudo mysqld_safe –skip-grant-tables &amp;<br>    mysql -u root mysql<br>    update mysql.user set authentication_string=PASSWORD(‘newPwd’), plugin=’mysql_native_password’ where user=’root’;<br>    flush privileges;<br>现在问题解决了，当时我是想了另一个办法，我新建了一个用户，但是登录时出现了错误为1045的错误，出现这种错误有一下几种情况，用户名或密码不对，密码未设置，或者ip限制，显然我这里是ip限制了，将ip改为localhost，问题解决了。到了现在，问题全部解决，本来挺简单的一个事出现了这么多问题。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wuyeren.github.io/2018/04/06/django配置数据库总结/" data-id="cjfnwtdzm0003wzpdexv4n04h" class="article-share-link">Share</a>
+      <a data-url="http://wuyeren.github.io/2018/04/06/django配置数据库总结/" data-id="cjr7iabiv000b6cpdv3ha6a1v" class="article-share-link">Share</a>
       
       
        
@@ -98,6 +98,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/04/09/scrapy爬虫总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          scrapy爬虫总结
+        
+      </div>
+    </a>
   
   
     <a href="/2018/04/01/几种数据库的介绍和比对/" id="article-nav-older" class="article-nav-link-wrap">
@@ -123,7 +132,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/common/">common</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全学习笔记/">信息安全学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透测试/">渗透测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研途/">研途</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/社工/">社工</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/">ML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/common/">common</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/信息安全学习笔记/">信息安全学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透测试/">渗透测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研途/">研途</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/社工/">社工</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
     </div>
   </div>
 
@@ -133,7 +142,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/common/" style="font-size: 10px;">common</a> <a href="/tags/信息安全学习笔记/" style="font-size: 10px;">信息安全学习笔记</a> <a href="/tags/技术杂谈/" style="font-size: 17.5px;">技术杂谈</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a> <a href="/tags/渗透测试/" style="font-size: 15px;">渗透测试</a> <a href="/tags/研途/" style="font-size: 10px;">研途</a> <a href="/tags/社工/" style="font-size: 12.5px;">社工</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+      <a href="/tags/ML/" style="font-size: 10px;">ML</a> <a href="/tags/common/" style="font-size: 10px;">common</a> <a href="/tags/信息安全学习笔记/" style="font-size: 10px;">信息安全学习笔记</a> <a href="/tags/技术杂谈/" style="font-size: 20px;">技术杂谈</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a> <a href="/tags/渗透测试/" style="font-size: 16.67px;">渗透测试</a> <a href="/tags/研途/" style="font-size: 10px;">研途</a> <a href="/tags/社工/" style="font-size: 13.33px;">社工</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
     </div>
   </div>
 
@@ -142,7 +151,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -155,23 +164,23 @@
       <ul>
         
           <li>
-            <a href="/2018/04/06/django配置数据库总结/">django配置数据库总结</a>
+            <a href="/2018/05/24/机器学习算法概述/">机器学习算法概述</a>
           </li>
         
           <li>
-            <a href="/2018/04/01/几种数据库的介绍和比对/">几种数据库的介绍和比对</a>
+            <a href="/2018/05/21/mint环境搭建-md/">mint环境搭建.md</a>
           </li>
         
           <li>
-            <a href="/2018/03/27/信息收集/">信息收集</a>
+            <a href="/2018/04/09/requests库总结/">requests库总结</a>
           </li>
         
           <li>
-            <a href="/2018/03/27/谈谈我大四离开校园后的经历/">谈谈我大四离开校园后的经历</a>
+            <a href="/2018/04/09/beautifulsoup总结/">beautifulsoup总结</a>
           </li>
         
           <li>
-            <a href="/2018/03/03/web安全学习体会/">web安全学习体会</a>
+            <a href="/2018/04/09/django框架总结/">django框架总结</a>
           </li>
         
       </ul>
@@ -186,7 +195,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 &nbsp;
+      &copy; 2019 &nbsp;
 	   <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
